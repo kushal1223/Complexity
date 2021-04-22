@@ -21,7 +21,7 @@ function main() {
 }
 
 
-
+var travis = 0;
 var builders = {};
 
 // Represent a reusable "class" following the Builder pattern.
@@ -124,9 +124,12 @@ function complexity(filePath) {
 		}
 		if (node.type === "Literal") {
 			fileBuilder.Strings += 1
+			
 		}
 
 	});
+
+	travis = fileBuilder.Strings
 
 }
 
@@ -141,6 +144,11 @@ function decisionCount(node) {
 	});
 
 	return max;
+}
+
+
+function getStrings() {
+	return travis
 }
 
 // Helper function for counting children of node.
@@ -267,3 +275,5 @@ function Crazy(argument) {
 	}
 }
 exports.complexity = complexity;
+exports.getStrings = getStrings;
+
