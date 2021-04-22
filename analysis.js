@@ -133,12 +133,7 @@ function complexity(filePath) {
 function decisionCount(node) {
 	var max = 0;
 
-	traverseWithParents(node, function (node) {
-		if (node.type === "LogicalExpression" && (node.operator === "&&" || node.operator === "||"))
-			max++;
-		else if (node.type === false)
-			max = 1;
-	});
+	
 
 	return max;
 }
